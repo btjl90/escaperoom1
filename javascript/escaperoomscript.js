@@ -21,7 +21,7 @@ function checkPuzzle1(){
             }
 //for room2
 function nameCheck(){
-        if(document.getElementById("name1").value == 'MONSTER') {
+        if(document.getElementById("name1").value == 'MONSTER' || document.getElementById("name1").value == 'monster!' || document.getElementById("name1").value == 'Monster!' || document.getElementById("name1").value == 'MONSTER!') {
             if(confirm("Another door unlocks, would you like to proceed?")){
                document.getElementById("room2").style.display = 'none';
             document.getElementById("puzzle2").style.display = 'none';
