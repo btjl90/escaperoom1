@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/escaperoomstyle.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+    <script src="javascript/escaperoomscript.js"></script>
+    </head>
+    <title>Escape Room 1</title>
+    
+    <!--intro-->
+    <div id="intro"><h1>The Escape Room</h1><p>You awoke on the couch.<br>But this is not your home.<br>Now you have to use clues to find your way out of here.<br>Oh, and there are two dogs staring at you.<br><img src="images/ANM.jpeg" width="20%"></p><button onclick="startRoomOne()">START</button></div>
+    
+    <!--room1-->
+    <div id="room1" style="display:none;"> <h1>The Living Room</h1><img src="images/room1.png" usemap="#room1Map"><map name="room1Map"><area shape="rect" coords="6,225,103,375" onclick="showPuzzle1()"><area shape="rect" coords="316,231,356,248" onclick="openNotepadModal()"><area shape="rect" coords="144,260,361,389" onclick="openRugModal()"><area shape="rect" coords="136,497,366,629" onclick="openTVModal()"><area shape="rect" coords="117,40,387,134" onclick="openCouchModal()"><area shape="rect" coords="399,196,636,413" onclick="openCupboardModal()"></map></div>
+    
+    <!--room2-->
+    <div id="room2" style="display:none;"><h1>The Master Bedroom</h1>
+    <div id="main"><img src="images/room2a.png" usemap="#room2a"></div>
+    <map name="room2a">
+    <area shape="rect" coords="22,50,120,145" onclick="openLefttableModal()">
+        <area shape="rect" coords="135,25,370,165" onclick="openBedModal()">
+        <area shape="rect" coords="385,50,480,145" onclick="showSwitch()">
+        <area shape="rect" coords="650,200,745,270" onclick="openSinkModal()">
+        <area shape="rect" coords="515,295,645,375" onclick="openToiletbowlModal()">
+        <area shape="rect" coords="540,400,595,560" onclick="openShowerModal()">
+        <area shape="rect" coords="640,450,670,520" onclick="openDogModal()">
+     </map>
+   
+    <map name="room2">
+    <area shape="rect" coords="22,50,120,145" onclick="openLefttableModal()">
+        <area shape="rect" coords="135,25,370,165" onclick="openBedModal()">
+        <area shape="rect" coords="650,200,745,270" onclick="openSinkModal()">
+        <area shape="rect" coords="515,295,645,375" onclick="openToiletbowlModal()">
+        <area shape="rect" coords="540,400,595,560" onclick="openShowerModal()">
+        <area shape="rect" coords="640,450,670,520" onclick="openDogModal()">
+    <area shape="rect" coords="155,345,345,580" onclick="showPuzzle2()"> 
+    </map>
+    
+    <div id="switch" style="display:none;"><h2>The Switch</h2><p>You found a switch behind the side table, what do you do?</p><button onclick="activateRoom()">PRESS SWITCH</button></div></div>
+    
+    <!--room3-->
+    <div id="room3" style="display:none;"><h1>The Store Room</h1>
+    <img src="images/room3.png" usemap="#room3">
+    <map name="room3">
+        <div id="cluemap"><area shape="rect" coords="20,220,410,420" onclick="showClue()"></div>
+        <div id="chestmap"><area shape="rect" coords="415,45,705,205" onclick="openChestModal()"></div>
+        <area shape="rect" coords="415,430,625,565" onclick="openRadioModal()">
+       <div id="puzzlemap"><area shape="rect" coords="0,0,100,100" onclick="showPuzzle3()"></div>
+        </map>
+   </div>
+    
+    <!--end page-->
+    <div id="endPage" style="display:none;"><p>A magical smoke surrounds you.<br>You have successfully escaped.<br><strong>Check with your Game Master for prizes.</strong></p></div>
+    
+    <!--puzzle1-->
+    <div id="puzzle1" style="display:none;"><h1>Padlock</h1><p>This is a 4 digit padlock</p><select id="padone"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="0">0</option></select><select id="padtwo"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="0">0</option></select><select id="padthree"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="0">0</option></select><select id="padfour"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="0">0</option></select><br><button onclick="checkPuzzle1()">Unlock</button></div>
+    
+    <!--puzzle2-->
+    <div id="puzzle2" style="display:none;"><h1>The drawers are locked.</h1>
+    <input id="name1"><button onclick="nameCheck()">UNLOCK</button></div>
+    
+    <!--puzzle3-->
+        <div id="puzzle3"><div id="content">
+  <div id="cardPile"></div>
+            <div id="cardSlots"></div></div></div>
+    
+    <!--room1 modals-->
+    <div id="room1NotepadModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>There is Some Scribbling</h2>
+    </div>
+    <div class="modal-body">
+    <p>first the dogs<br>
+    then the humans<br>
+    the english channel<br>
+    finally, broadcasts the news at 1800hrs</p>
+    </div></div></div>
+    <div id="room1RugModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The Persian Rug</h2>
+    </div>
+    <div class="modal-body">
+    <p>This rug looks expensive.</p>
+    </div></div></div>
+    <div id="room1TVModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The Television</h2>
+    </div>
+    <div class="modal-body">
+     <img src="images/room1-tv-tv.jpg">
+    <p>This was showing on the television.</p>
+    </div></div></div>
+     <div id="room1CouchModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The Couch</h2>
+    </div>
+    <div class="modal-body">
+    <p>You find two different colored fur on the sofa.</p>
+    </div></div></div>
+    <div id="room1CupboardModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The Cupboard</h2>
+    </div>
+    <div class="modal-body">
+<img src="images/room1-cupboard-portrait.jpg" height="12%" width="12%">
+    <p>You found a family portrait.</p>
+      </div></div></div>
+    
+    <!--for room2 modals-->
+    <div id="room2LefttableModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The Left Table</h2>
+    </div>
+    <div class="modal-body">
+     <p>You found a note that says:<br><i>Shout my dog's name to open the locked drawer.</i></p>
+    </div></div></div>
+    <div id="room2BedModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The King Size Bed</h2>
+    </div>
+    <div class="modal-body">
+     <p>This king size bed was bought from PosturePedic at a discounted price of $5000.</p>
+    </div></div></div>
+    <div id="room2SinkModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The Sink</h2>
+    </div>
+    <div class="modal-body">
+     <p>The sink looks dry and dusty.</p>
+    </div></div></div>
+    <div id="room2ToiletbowlModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The Toilet Bowl</h2>
+    </div>
+    <div class="modal-body">
+     <p>This Grohe toilet bowl is suprisingly clean.</p>
+    </div></div></div>
+    <div id="room2ShowerModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The Rain Shower</h2>
+    </div>
+    <div class="modal-body">
+    <p>You checked the expensive looking shower head.</p>
+    </div></div></div>
+    <div id="room2DogModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The Dog Statue</h2>
+    </div>
+    <div class="modal-body">
+<p><img src="images/dog.png" width="10%"></p>
+      </div></div></div>
+    
+    <!--room3 modals-->
+    <div id="room3ChestModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The Treasure Chest</h2>
+    </div>
+    <div class="modal-body">
+<p>The chest is locked by some magical powers, you need to find some way to unlock it.</p>
+      </div></div></div>
+    <div id="room3RadioModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>The Radio</h2>
+    </div>
+    <div class="modal-body">
+<p>You listened to the broadcast.</p>
+        <audio controls src="audio/radio.mp3"></audio>
+      </div></div></div>
+</html>
